@@ -95,14 +95,14 @@ where
 impl<Item, F> ReducerProcessSend<Item> for FolderSyncReducer<Item, F>
 where
 	F: FolderSync<Item>,
-	F::Done: ProcessSend + 'static,
+	F::Done: ProcessSend,
 {
 	type Done = F::Done;
 }
 impl<Item, F> ReducerSend<Item> for FolderSyncReducer<Item, F>
 where
 	F: FolderSync<Item>,
-	F::Done: Send + 'static,
+	F::Done: Send,
 {
 	type Done = F::Done;
 }
